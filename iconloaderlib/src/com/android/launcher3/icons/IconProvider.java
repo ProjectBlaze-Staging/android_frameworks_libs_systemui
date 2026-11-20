@@ -128,6 +128,13 @@ public class IconProvider {
 
     private Drawable getIcon(PackageItemInfo info, ApplicationInfo appInfo, int iconDpi) {
         String packageName = info.packageName;
+
+        // A user selected icon pack (BlazeHouse) wins over the app supplied icon.
+        Drawable packIcon = getIconPackIcon(info, iconDpi);
+        if (packIcon != null) {
+            return packIcon;
+        }
+
         ThemeData td = getThemeDataForPackage(packageName);
 
         Drawable icon = null;
@@ -150,6 +157,15 @@ public class IconProvider {
     }
 
     protected ThemeData getThemeDataForPackage(String packageName) {
+        return null;
+    }
+
+    /**
+     * Hook for subclasses that support third party icon packs. Return a fresh drawable that
+     * replaces the icon of the given item, or null to keep the application supplied icon.
+     */
+    @Nullable
+    protected Drawable getIconPackIcon(PackageItemInfo info, int iconDpi) {
         return null;
     }
 

@@ -160,7 +160,7 @@ public class Interpolators {
     public static final Interpolator FAST_OUT_SLOW_IN_REVERSE =
             new PathInterpolator(0.8f, 0f, 0.6f, 1f);
     public static final Interpolator SLOW_OUT_LINEAR_IN = new PathInterpolator(0.8f, 0f, 1f, 1f);
-    public static final Interpolator AGGRESSIVE_EASE = new PathInterpolator(0.2f, 0f, 0f, 1f);
+    public static final Interpolator AGGRESSIVE_EASE = new PathInterpolator(0.05f, 0.7f, 0.1f, 1f);
     public static final Interpolator AGGRESSIVE_EASE_IN_OUT = new PathInterpolator(0.6f,0, 0.4f, 1);
 
     public static final Interpolator DECELERATED_EASE = new PathInterpolator(0, 0, .2f, 1f);
